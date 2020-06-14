@@ -29,10 +29,18 @@ function timeFormat(time, add) {
 
 function setLine(time, day) {
     let [sHour, sMinute] = time.split(":").map(e => Number(e))
-    if (day < 0) sHour -= 12;
     let currentDate = new Date()
-    let diff = (currentDate.getHours() - sHour) * 60 + currentDate.getMinutes() - sMinute;
-    if (diff < 0 || diff > 720) {
+    let cHour = currentDate.getHours();
+    let cMinute = currentDate.getMinutes();
+    let hourDiff
+    if (day == 0) {
+        hourDiff = cHour - sHour;
+    } else {
+        hourDiff = cHour + (24 - sHour);
+        console.log(hourDiff);
+    }
+    let diff = hourDiff * 60 + cMinute - sMinute;
+    if (diff < 0 || diff > 735) {
         let p = document.createElement('p');
         p.classList.add('alert');
         p.classList.add('alert-danger');
