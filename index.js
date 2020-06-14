@@ -32,7 +32,7 @@ function setLine(time, day) {
     let currentDate = new Date()
     let cHour = currentDate.getHours();
     let cMinute = currentDate.getMinutes();
-    let hourDiff
+    let hourDiff;
     if (day == 0) {
         hourDiff = cHour - sHour;
     } else {
