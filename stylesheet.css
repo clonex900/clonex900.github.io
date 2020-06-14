@@ -1,0 +1,23 @@
+#graph img{
+    height: auto;
+    width: 100%;
+}
+
+div {
+    position: relative;
+    width: 1000px;
+    padding-bottom: 2.5em;
+}
+p {
+    position: absolute;
+    bottom: 0em;
+    width: 50px;
+    text-align: center;
+}
+
+#line {
+    position: absolute;
+    height: 290px;
+    top: 25px;
+    border-left: 6px solid green;
+}
