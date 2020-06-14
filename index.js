@@ -4,9 +4,13 @@ document.addEventListener("DOMContentLoaded", e => {
     document.getElementById('start').value = cur;
     document.getElementById('startForm').addEventListener('submit', e => {
         e.preventDefault();
+        let error = document.getElementById('errorMsg');
+        if (error) error.remove();
         let startTime = e.target.querySelector("input").value;
         let day = e.target.querySelector('input[name="day"]:checked').value;
-        setLine(startTime, day);
+        if (!setLine(startTime, day)) {
+            return;
+        }
         clearInterval(interval);
         interval = setInterval(function() {setLine(startTime, day)}, 3000);
         document.querySelectorAll("div#graph p").forEach( (e, i) => {
@@ -28,7 +32,18 @@ function setLine(time, day) {
     if (day < 0) sHour -= 12;
     let currentDate = new Date()
     let diff = (currentDate.getHours() - sHour) * 60 + currentDate.getMinutes() - sMinute;
+    if (diff < 0 || diff > 720) {
+        let p = document.createElement('p');
+        p.classList.add('alert');
+        p.classList.add('alert-danger');
+        p.id = 'errorMsg';
+        p.textContent = "Invalid Time";
+
+        document.querySelector('.card').insertBefore(p, document.querySelector('form'));
+        return 0;
+    }
     let line = document.getElementById('line');
     line.style.left = (1.15 * diff + 123) + 'px';
+    return 1;
 }
 

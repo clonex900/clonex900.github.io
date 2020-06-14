@@ -11,7 +11,7 @@
 div.card {
     width: 1050px;
 }
-p {
+#graph p {
     position: absolute;
     bottom: 0em;
     width: 50px;
