@@ -1,5 +1,7 @@
 let interval;
 document.addEventListener("DOMContentLoaded", e => {
+    let cur = new Date().toTimeString().split(' ')[0].slice(0,-3);
+    document.getElementById('start').value = cur;
     document.getElementById('startForm').addEventListener('submit', e => {
         e.preventDefault();
         let startTime = e.target.querySelector("input").value;
