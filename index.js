@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", e => {
 
             return;
         }
-        
+
         //Clear interval if already set then set it
         if(interval) clearInterval(interval);
         interval = setInterval(function() {setLine(startTime, day)}, 3000);
@@ -76,7 +76,7 @@ function setLine(time, day) {
     let diff = hourDiff * 60 + cMinute - sMinute;
 
     //Fail if diff is out of range
-    if (diff < 0 || diff > 735) return 0; 
+    if (diff < 0 || diff > 735) return 0;
 
     //Set the line to the correct position
     //123px is the start position and 1.15px is 1 minute.

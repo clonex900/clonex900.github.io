@@ -1,6 +1,5 @@
-#graph img{
-    height: auto;
-    width: 100%;
+div.card {
+    width: 1050px;
 }
 
 #graph {
@@ -8,12 +7,14 @@
     width: 1000px;
     padding-bottom: 3em;
 }
-div.card {
-    width: 1050px;
+
+#graph img{
+    height: auto;
+    width: 100%;
 }
+
 #graph p {
     position: absolute;
-    bottom: 0em;
     width: 50px;
     text-align: center;
 }
